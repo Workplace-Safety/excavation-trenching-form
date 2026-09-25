@@ -12,20 +12,20 @@ body {
     color: #343A40;
     line-height: 1.6;
     background: #f4f6f8;
-    padding-top: 70px; /* Space for sticky navbar */
+    padding-top: 80px; /* Essential space for sticky navbar */
     padding-bottom: 36pt;
 }
 
-/* STICKY TOOLBAR CSS */
+/* FULLY FIXED STICKY TOOLBAR */
 .sticky-toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
     background: #1E3A5F;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    padding: 10px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 99999 !important;
+    padding: 12px 20px;
 }
 
 .toolbar-container {
@@ -103,7 +103,7 @@ body {
 /* FORM LAYOUT */
 .form-container {
     max-width: 8.5in;
-    margin: 20px auto;
+    margin: 0 auto;
     background: #ffffff;
     padding: 36pt;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
@@ -156,7 +156,6 @@ h1 {
     background: transparent;
 }
 
-/* MOBILE NATIVE DATE PICKER ADJUSTMENT */
 .date-input {
     font-family: inherit;
     cursor: pointer;
@@ -199,16 +198,15 @@ h3 {
     cursor: pointer;
     padding: 6px;
     border-radius: 4px;
-    transition: background 0.2s ease;
 }
 
-.status-item:hover {
-    background: #dee2e6;
+.status-item input[type="radio"] {
+    display: none;
 }
 
 .checkbox-large {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border: 2px solid #343A40;
     background: #FFFFFF;
     display: inline-block;
@@ -217,10 +215,9 @@ h3 {
     border-radius: 4px;
 }
 
-/* Custom Checked Styling for Radio/Checkbox */
 .status-item input[type="radio"]:checked + .checkbox-large::after {
     content: "✓";
-    font-size: 22px;
+    font-size: 20px;
     color: #FF6B35;
     position: absolute;
     top: 50%;
@@ -247,14 +244,10 @@ h3 {
     border-bottom: 1px solid #E9ECEF;
 }
 
-.checklist-item:last-child {
-    border-bottom: none;
-}
-
 .checkbox-container {
     display: flex;
     gap: 12pt;
-    min-width: 200px;
+    min-width: 180px;
     flex-shrink: 0;
 }
 
@@ -301,7 +294,6 @@ h3 {
     flex: 1;
     font-size: 11pt;
     color: #343A40;
-    padding-top: 1pt;
 }
 
 .notes-section {
@@ -362,7 +354,6 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 8pt;
-    margin-bottom: 8pt;
 }
 
 .alert-box {
@@ -403,7 +394,7 @@ h3 {
 /* MEDIA QUERIES FOR PRINT & MOBILE */
 @media print {
     body {
-        padding-top: 0;
+        padding-top: 0 !important;
         background: #ffffff;
     }
     .sticky-toolbar {
@@ -419,11 +410,16 @@ h3 {
 
 @media screen and (max-width: 768px) {
     body {
-        padding-top: 110px;
+        padding-top: 120px;
     }
     .toolbar-container {
         flex-direction: column;
         gap: 8px;
+    }
+    .toolbar-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .form-container {
         padding: 16pt;
@@ -438,9 +434,5 @@ h3 {
     .checklist-item {
         flex-direction: column;
         gap: 8pt;
-    }
-    .checkbox-container {
-        min-width: 100%;
-        justify-content: flex-start;
     }
 }
