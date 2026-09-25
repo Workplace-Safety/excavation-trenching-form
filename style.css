@@ -1,945 +1,299 @@
-/* =========================================================
-   EXCAVATION & TRENCHING SAFETY INSPECTION
-   COMPLETE STYLE SHEET
-   ========================================================= */
 
-
-/* =========================
-   GLOBAL
-   ========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 11pt;
-    color: #343A40;
-    line-height: 1.6;
-    background: #ffffff;
-
-    /*
-       Space reserved for the fixed toolbar
-    */
-    padding: 92px 36pt 36pt;
-
-    max-width: 8.5in;
-    margin: 0 auto;
-}
-
-
-/* =========================
-   FIXED DOWNLOAD TOOLBAR
-   ========================= */
-
-.toolbar {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    width: 100%;
-    min-height: 64px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 10px 15px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #D9D9D9;
-
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.15);
-
-    z-index: 999999;
-
-    /*
-       Prevent toolbar from affecting document width
-    */
-    box-sizing: border-box;
-}
-
-
-/* =========================
-   BUTTONS
-   ========================= */
-
-.btn {
-    border: none;
-
-    border-radius: 6px;
-
-    padding: 11px 20px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.15s ease,
-        box-shadow 0.2s ease;
-
-    min-width: 125px;
-
-    color: #ffffff;
-}
-
-.btn:hover {
-    opacity: 0.92;
-
-    box-shadow:
-        0 2px 7px rgba(0, 0, 0, 0.15);
-}
-
-.btn:active {
-    transform: scale(0.97);
-}
-
-.btn:disabled {
-    opacity: 0.55;
-    cursor: wait;
-}
-
-
-/* PDF */
-
-.btn-pdf {
-    background: #D93025;
-}
-
-
-/* Word */
-
-.btn-word {
-    background: #2B579A;
-}
-
-
-/* Clear */
-
-.btn-clear {
-    background: #6C757D;
-}
-
-
-/* =========================
-   HEADER
-   ========================= */
-
-.header {
-    background:
-        linear-gradient(
-            to bottom,
-            #E9ECEF 0%,
-            #FFFFFF 100%
-        );
-
-    padding: 24pt 16pt;
-
-    border-bottom:
-        3px solid #FF6B35;
-
-    margin-bottom: 24pt;
-}
-
-h1 {
-    font-family:
-        "Roboto Condensed",
-        "Arial Narrow",
-        Arial,
-        sans-serif;
-
-    font-size: 24pt;
-
-    font-weight: 700;
-
-    color: #FF6B35;
-
-    margin-bottom: 12pt;
-
-    text-transform: uppercase;
-
-    letter-spacing: -0.5px;
-}
-
-
-/* =========================
-   HEADER INFORMATION
-   ========================= */
-
-.header-info {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 16pt;
-
-    margin-top: 16pt;
-}
-
-.info-field {
-    margin-bottom: 8pt;
-}
-
-.info-label {
-    font-size: 10pt;
-
-    font-weight: 600;
-
-    color: #6C757D;
-
-    display: block;
-
-    margin-bottom: 4pt;
-}
-
-.info-input {
-    width: 100%;
-
-    border: none;
-
-    border-bottom:
-        1px solid #343A40;
-
-    padding: 4pt 0;
-
-    font-size: 11pt;
-
-    color: #343A40;
-
-    background: transparent;
-
-    outline: none;
-}
-
-.info-input:focus {
-    border-bottom:
-        2px solid #FF6B35;
-}
-
-
-/* =========================
-   HEADINGS
-   ========================= */
-
-h2 {
-    font-family:
-        "Roboto Condensed",
-        "Arial Narrow",
-        Arial,
-        sans-serif;
-
-    font-size: 18pt;
-
-    font-weight: 700;
-
-    color: #FFFFFF;
-
-    background: #1E3A5F;
-
-    padding: 12pt 16pt;
-
-    margin: 32pt 0 16pt 0;
-
-    border-left:
-        4px solid #FF6B35;
-
-    text-transform: uppercase;
-
-    break-after: avoid;
-
-    page-break-after: avoid;
-}
-
-h3 {
-    font-family:
-        "Roboto Condensed",
-        "Arial Narrow",
-        Arial,
-        sans-serif;
-
-    font-size: 14pt;
-
-    font-weight: 700;
-
-    color: #343A40;
-
-    margin: 24pt 0 12pt 0;
-}
-
-
-/* =========================
-   STATUS SUMMARY
-   ========================= */
-
-.status-summary {
-    background: #E9ECEF;
-
-    padding: 16pt;
-
-    border-radius: 4pt;
-
-    margin-bottom: 24pt;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr 1fr;
-
-    gap: 16pt;
-}
-
-.status-item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12pt;
-
-    cursor: pointer;
-}
-
-
-/*
-   Keep native radio usable,
-   but make it visually subtle.
-*/
-
-.status-item input[type="radio"] {
-    position: absolute;
-
-    opacity: 0;
-
-    pointer-events: none;
-}
-
-.checkbox-large {
-    width: 48px;
-
-    height: 48px;
-
-    border:
-        2px solid #343A40;
-
-    background: #FFFFFF;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    vertical-align: middle;
-
-    flex-shrink: 0;
-
-    cursor: pointer;
-
-    border-radius: 3px;
-
-    transition:
-        background 0.15s ease,
-        border-color 0.15s ease;
-}
-
-
-/*
-   Selected status
-*/
-
-.status-item.selected .checkbox-large {
-    background: #1E3A5F;
-
-    border-color: #1E3A5F;
-}
-
-.status-item.selected .checkbox-large::after {
-    content: "✓";
-
-    color: #FFFFFF;
-
-    font-size: 27px;
-
-    font-weight: 700;
-}
-
-.checkbox-label {
-    font-size: 11pt;
-
-    font-weight: 600;
-
-    color: #343A40;
-}
-
-
-/* =========================
-   CHECKLIST
-   ========================= */
-
-.checklist-section {
-    margin-bottom: 24pt;
-}
-
-.checklist-item {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 12pt;
-
-    padding: 12pt 0;
-
-    border-bottom:
-        1px solid #E9ECEF;
-
-    break-inside: avoid;
-
-    page-break-inside: avoid;
-}
-
-.checklist-item:last-child {
-    border-bottom: none;
-}
-
-.checkbox-container {
-    display: flex;
-
-    gap: 8pt;
-
-    min-width: 200px;
-
-    flex-shrink: 0;
-}
-
-.checkbox-container label {
-    display: flex;
-
-    align-items: center;
-
-    gap: 4px;
-
-    cursor: pointer;
-
-    font-size: 10pt;
-}
-
-.checkbox-container input[type="radio"] {
-    position: absolute;
-
-    opacity: 0;
-
-    pointer-events: none;
-}
-
-.checkbox-small {
-    width: 24px;
-
-    height: 24px;
-
-    border:
-        2px solid #343A40;
-
-    background: #FFFFFF;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    cursor: pointer;
-
-    flex-shrink: 0;
-
-    border-radius: 2px;
-
-    transition:
-        background 0.15s ease,
-        border-color 0.15s ease;
-}
-
-
-/*
-   Selected checklist option
-*/
-
-.checkbox-container label.selected .checkbox-small {
-    background: #1E3A5F;
-
-    border-color: #1E3A5F;
-}
-
-.checkbox-container label.selected .checkbox-small::after {
-    content: "✓";
-
-    color: #FFFFFF;
-
-    font-size: 16px;
-
-    font-weight: 700;
-}
-
-
-/* =========================
-   CHECKLIST TEXT
-   ========================= */
-
-.checkbox-option {
-    display: flex;
-
-    align-items: center;
-
-    gap: 4pt;
-}
-
-.checkbox-option-label {
-    font-size: 10pt;
-
-    color: #343A40;
-}
-
-.item-text {
-    flex: 1;
-
-    font-size: 11pt;
-
-    color: #343A40;
-
-    padding-top: 2pt;
-}
-
-
-/* =========================
-   NOTES
-   ========================= */
-
-.notes-section {
-    margin: 24pt 0;
-
-    break-inside: avoid;
-
-    page-break-inside: avoid;
-}
-
-.notes-area {
-    width: 100%;
-
-    min-height: 96pt;
-
-    border:
-        1px solid #6C757D;
-
-    padding: 8pt;
-
-    font-family:
-        "Open Sans",
-        Arial,
-        sans-serif;
-
-    font-size: 11pt;
-
-    color: #343A40;
-
-    resize: vertical;
-
-    outline: none;
-}
-
-.notes-area:focus {
-    border:
-        2px solid #FF6B35;
-}
-
-
-/* =========================
-   SIGNATURE
-   ========================= */
-
-.signature-section {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 24pt;
-
-    margin: 32pt 0;
-
-    padding-top: 24pt;
-
-    border-top:
-        2px solid #E9ECEF;
-
-    break-inside: avoid;
-
-    page-break-inside: avoid;
-}
-
-.signature-box {
-    border:
-        2px dashed #6C757D;
-
-    padding: 16pt;
-
-    min-height: 96pt;
-
-    background: #FFFFFF;
-}
-
-.signature-label {
-    font-weight: 600;
-
-    color: #343A40;
-
-    margin-bottom: 8pt;
-
-    display: block;
-}
-
-.signature-line {
-    border-bottom:
-        1px solid #343A40;
-
-    padding: 8pt 0;
-
-    margin-top: 48pt;
-}
-
-
-/* =========================
-   FOOTER
-   ========================= */
-
-.footer {
-    margin-top: 32pt;
-
-    padding-top: 16pt;
-
-    border-top:
-        1px solid #6C757D;
-
-    font-size: 8pt;
-
-    color: #6C757D;
-
-    text-align: center;
-}
-
-.footer-grid {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr 1fr;
-
-    gap: 8pt;
-
-    margin-bottom: 8pt;
-}
-
-.footer-note {
-    margin-top: 8pt;
-
-    font-size: 7pt;
-}
-
-
-/* =========================
-   ALERT BOX
-   ========================= */
-
-.alert-box {
-    background: #F8D7DA;
-
-    border-left:
-        4px solid #DC143C;
-
-    padding: 12pt;
-
-    margin: 16pt 0;
-
-    break-inside: avoid;
-
-    page-break-inside: avoid;
-}
-
-.alert-text {
-    color: #721C24;
-
-    font-size: 10pt;
-
-    font-weight: 600;
-}
-
-
-/* =========================
-   INFO BOX
-   ========================= */
-
-.info-box {
-    background: #D1ECF1;
-
-    border-left:
-        4px solid #17A2B8;
-
-    padding: 12pt;
-
-    margin: 16pt 0;
-
-    break-inside: avoid;
-
-    page-break-inside: avoid;
-}
-
-.info-text {
-    color: #0C5460;
-
-    font-size: 10pt;
-}
-
-
-/* =========================
-   ATMOSPHERIC GRID
-   ========================= */
-
-.atmospheric-grid {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr 1fr 1fr;
-
-    gap: 12pt;
-
-    margin: 16pt 0;
-
-    padding: 16pt;
-
-    background: #E9ECEF;
-
-    border-radius: 4pt;
-
-    break-inside: avoid;
-
-    page-break-inside: avoid;
-}
-
-
-/* =========================
-   MAIN DOCUMENT
-   ========================= */
-
-#document {
-    width: 100%;
-}
-
-section {
-    break-inside: auto;
-}
-
-
-/* =========================
-   EXPORT STATE
-   ========================= */
-
-.exporting {
-    background: #ffffff !important;
-}
-
-.exporting .no-print {
-    display: none !important;
-}
-
-.exporting input,
-.exporting textarea {
-    color: #000000 !important;
-}
-
-
-/* =========================
-   PRINT
-   ========================= */
-
-@media print {
-
-    body {
-        padding: 0.5in;
-        max-width: none;
-    }
-
-    .toolbar,
-    .no-print {
-        display: none !important;
-    }
-
-    .checkbox-large,
-    .checkbox-small {
-        border-color:
-            #000000 !important;
-
-        print-color-adjust: exact;
-
-        -webkit-print-color-adjust: exact;
-    }
-
-    .header,
-    .info-box,
-    .alert-box,
-    .status-summary {
-        print-color-adjust: exact;
-
-        -webkit-print-color-adjust: exact;
-    }
-
-    h2 {
-        print-color-adjust: exact;
-
-        -webkit-print-color-adjust: exact;
-    }
-
-    input,
-    textarea {
-        background: transparent !important;
-    }
-}
-
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media screen and (max-width: 600px) {
-
-    body {
-        padding:
-            78px
-            16pt
-            16pt;
-    }
-
-    .toolbar {
-        min-height: 58px;
-
-        padding:
-            8px 10px;
-
-        gap: 7px;
-    }
-
-    .btn {
-        min-width: 0;
-
-        flex: 1;
-
-        padding:
-            10px 7px;
-
-        font-size: 11px;
-    }
-
-    h1 {
-        font-size: 19pt;
-
-        line-height: 1.2;
-    }
-
-    h2 {
-        font-size: 14pt;
-
-        padding:
-            10pt 12pt;
-    }
-
-    .header {
-        padding:
-            18pt 12pt;
-    }
-
-    .header-info,
-    .status-summary,
-    .atmospheric-grid,
-    .signature-section {
-        grid-template-columns: 1fr;
-    }
-
-    .checkbox-container {
-        flex-direction: column;
-
-        min-width: 110px;
-    }
-
-    .checklist-item {
-        gap: 8pt;
-    }
-
-    .checkbox-small {
-        width: 22px;
-        height: 22px;
-    }
-
-    .item-text {
-        font-size: 10pt;
-    }
-
-    .status-item {
-        gap: 8pt;
-    }
-
-    .checkbox-large {
-        width: 40px;
-        height: 40px;
-    }
-
-    .checkbox-label {
-        font-size: 10pt;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-
-        gap: 4pt;
-    }
-}
-
-
-/* =========================
-   VERY SMALL PHONES
-   ========================= */
-
-@media screen and (max-width: 380px) {
-
-    .toolbar {
-        gap: 4px;
-
-        padding:
-            7px 5px;
-    }
-
-    .btn {
-        font-size: 10px;
-
-        padding:
-            9px 4px;
-    }
-
-    body {
-        padding-top: 74px;
-    }
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 11pt;
+            color: #343A40;
+            line-height: 1.6;
+            background: #ffffff;
+            padding: 36pt;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(to bottom, #E9ECEF 0%, #FFFFFF 100%);
+            padding: 24pt 16pt;
+            border-bottom: 3px solid #FF6B35;
+            margin-bottom: 24pt;
+        }
+
+        h1 {
+            font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+            font-size: 24pt;
+            font-weight: 700;
+            color: #FF6B35;
+            margin-bottom: 12pt;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16pt;
+            margin-top: 16pt;
+        }
+
+        .info-field {
+            margin-bottom: 8pt;
+        }
+
+        .info-label {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #6C757D;
+            display: block;
+            margin-bottom: 4pt;
+        }
+
+        .info-input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #343A40;
+            padding: 4pt 0;
+            font-size: 11pt;
+            color: #343A40;
+        }
+
+        h2 {
+            font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+            font-size: 18pt;
+            font-weight: 700;
+            color: #FFFFFF;
+            background: #1E3A5F;
+            padding: 12pt 16pt;
+            margin: 32pt 0 16pt 0;
+            border-left: 4px solid #FF6B35;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+            font-size: 14pt;
+            font-weight: 700;
+            color: #343A40;
+            margin: 24pt 0 12pt 0;
+        }
+
+        .status-summary {
+            background: #E9ECEF;
+            padding: 16pt;
+            border-radius: 4pt;
+            margin-bottom: 24pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16pt;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 12pt;
+        }
+
+        .checkbox-large {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #343A40;
+            background: #FFFFFF;
+            display: inline-block;
+            vertical-align: middle;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #343A40;
+        }
+
+        .checklist-section {
+            margin-bottom: 24pt;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12pt;
+            padding: 12pt 0;
+            border-bottom: 1px solid #E9ECEF;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox-container {
+            display: flex;
+            gap: 8pt;
+            min-width: 200px;
+            flex-shrink: 0;
+        }
+
+        .checkbox-small {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #343A40;
+            background: #FFFFFF;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 4pt;
+        }
+
+        .checkbox-option-label {
+            font-size: 10pt;
+            color: #343A40;
+        }
+
+        .item-text {
+            flex: 1;
+            font-size: 11pt;
+            color: #343A40;
+            padding-top: 2pt;
+        }
+
+        .notes-section {
+            margin: 24pt 0;
+        }
+
+        .notes-area {
+            width: 100%;
+            min-height: 96pt;
+            border: 1px solid #6C757D;
+            padding: 8pt;
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 11pt;
+            color: #343A40;
+            resize: vertical;
+        }
+
+        .signature-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24pt;
+            margin: 32pt 0;
+            padding-top: 24pt;
+            border-top: 2px solid #E9ECEF;
+        }
+
+        .signature-box {
+            border: 2px dashed #6C757D;
+            padding: 16pt;
+            min-height: 96pt;
+            background: #FFFFFF;
+        }
+
+        .signature-label {
+            font-weight: 600;
+            color: #343A40;
+            margin-bottom: 8pt;
+            display: block;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #343A40;
+            padding: 8pt 0;
+            margin-top: 48pt;
+        }
+
+        .footer {
+            margin-top: 32pt;
+            padding-top: 16pt;
+            border-top: 1px solid #6C757D;
+            font-size: 8pt;
+            color: #6C757D;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8pt;
+            margin-bottom: 8pt;
+        }
+
+        .alert-box {
+            background: #F8D7DA;
+            border-left: 4px solid #DC143C;
+            padding: 12pt;
+            margin: 16pt 0;
+        }
+
+        .alert-text {
+            color: #721C24;
+            font-size: 10pt;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: #D1ECF1;
+            border-left: 4px solid #17A2B8;
+            padding: 12pt;
+            margin: 16pt 0;
+        }
+
+        .info-text {
+            color: #0C5460;
+            font-size: 10pt;
+        }
+
+        .atmospheric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 12pt;
+            margin: 16pt 0;
+            padding: 16pt;
+            background: #E9ECEF;
+            border-radius: 4pt;
+        }
+
+        @media print {
+            body {
+                padding: 0.5in;
+            }
+
+            .checkbox-large,
+            .checkbox-small {
+                border-color: #000000 !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 16pt;
+            }
+
+            .header-info,
+            .status-summary,
+            .atmospheric-grid,
+            .signature-section {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-container {
+                flex-direction: column;
+            }
+        }
+    
+/* Fixed toolbar */
+body{padding:92px 36pt 36pt;}
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:999999;display:flex;justify-content:center;align-items:center;gap:10px;padding:10px;background:#fff;border-bottom:1px solid #ddd;box-shadow:0 3px 12px rgba(0,0,0,.15)}
+.btn{border:0;border-radius:6px;padding:11px 20px;font:700 13px Arial;cursor:pointer;color:#fff;min-width:125px}.btn-pdf{background:#d93025}.btn-word{background:#2b579a}.btn-clear{background:#6c757d}.btn:disabled{opacity:.55}
+.status-item,.checklist-item{cursor:pointer}.selected .checkbox-large,.selected .checkbox-small{background:#1e3a5f;border-color:#1e3a5f}.selected .checkbox-large:after,.selected .checkbox-small:after{content:"✓";color:#fff;font-weight:700}.selected .checkbox-large:after{font-size:27px}.selected .checkbox-small:after{font-size:16px}
+input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+@media screen and (max-width:600px){body{padding:76px 16pt 16pt}.toolbar{gap:6px;padding:8px}.btn{min-width:0;flex:1;padding:10px 6px;font-size:11px}.checklist-item{gap:8pt}.checkbox-container{min-width:100px}}
+@media print{.toolbar{display:none!important}body{padding:.5in}}
